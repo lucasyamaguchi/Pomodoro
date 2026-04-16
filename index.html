@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Easy Pomodoro</title>
+    <title>Pomodoro Acessível - Temas Culinários</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
     <style>
         @font-face {
@@ -236,7 +236,7 @@
 
         <div class="action-item">
             <span class="action-label" data-i18n="lblCoffee">Buy me a coffee</span>
-            <a href="https://www.paypal.com/donate/?hosted_button_id=8T8APU4MLGTFY" target="_blank" class="action-icon-btn">☕</a>
+            <a href="https://www.paypal.com/donate/?hosted_button_id=8T8APU4MLGTFY" target="_blank" rel="noopener noreferrer" class="action-icon-btn">☕</a>
         </div>
 
         <div class="action-item">
@@ -304,7 +304,7 @@
                 <div class="settings-container">
                     <div class="setting-item">
                         <label for="set-focus"><span data-i18n="lblFocus">Foco:</span> <span id="val-focus" class="val-display">25</span> <span data-i18n="min">min</span></label>
-                        <input type="range" id="set-focus" value="25" min="5" max="60" step="5" oninput="updateSettings()">
+                        <input type="range" id="set-focus" value="25" min="1" max="60" step="1" oninput="updateSettings()">
                     </div>
                     <div class="setting-item">
                         <label for="set-short"><span data-i18n="lblShort">Pausa Curta:</span> <span id="val-short" class="val-display">5</span> <span data-i18n="min">min</span></label>
@@ -341,7 +341,8 @@
                 logFocus: "✅ Foco concluído", logBreak: "☕ Pausa finalizada",
                 months: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
                 modalTitle: "Me mande uma mensagem", modalEmail: "Seu E-mail ou Telefone", modalMsg: "Sua Mensagem", modalCancel: "Cancelar", modalSend: "Enviar", modalSuccess: "Mensagem Enviada!",
-                lblPortfolio: "Portfólio", lblCoffee: "Me pague um café", lblEmail: "E-mail"
+                lblPortfolio: "Portfólio", lblCoffee: "Me pague um café", lblEmail: "E-mail",
+                msgMaxFocus: "Aviso: O tempo de foco não pode exceder 60 minutos!"
             },
             en: {
                 titleSettings: "Time Settings", titleHistory: "History", titleThemes: "Themes",
@@ -354,7 +355,8 @@
                 logFocus: "✅ Focus completed", logBreak: "☕ Break finished",
                 months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
                 modalTitle: "Send me a message", modalEmail: "Your Email or Phone", modalMsg: "Your Message", modalCancel: "Cancel", modalSend: "Send", modalSuccess: "Message Sent!",
-                lblPortfolio: "Portfolio", lblCoffee: "Buy me a coffee", lblEmail: "E-mail"
+                lblPortfolio: "Portfolio", lblCoffee: "Buy me a coffee", lblEmail: "E-mail",
+                msgMaxFocus: "Warning: Focus time cannot exceed 60 minutes!"
             },
             es: {
                 titleSettings: "Ajustes de Tiempo", titleHistory: "Historial", titleThemes: "Temas",
@@ -367,7 +369,8 @@
                 logFocus: "✅ Enfoque completado", logBreak: "☕ Pausa finalizada",
                 months: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
                 modalTitle: "Envíame un mensaje", modalEmail: "Tu Email o Teléfono", modalMsg: "Tu Mensaje", modalCancel: "Cancelar", modalSend: "Enviar", modalSuccess: "¡Mensaje Enviado!",
-                lblPortfolio: "Portafolio", lblCoffee: "Cómprame un café", lblEmail: "Email"
+                lblPortfolio: "Portafolio", lblCoffee: "Cómprame un café", lblEmail: "Email",
+                msgMaxFocus: "Aviso: ¡El tiempo de enfoque no puede exceder los 60 minutos!"
             }
         };
 
@@ -386,7 +389,6 @@
             updateDisplay();
         }
 
-        // FUNÇÕES DO MODAL DE CONTATO
         const modal = document.getElementById('contact-modal');
         function toggleModal(show) {
             if (show) {
@@ -428,8 +430,6 @@
             }
         });
 
-
-        // LOGICA DO POMODORO
         let timeRemaining = 25 * 60;
         let timerInterval = null;
         let isRunning = false;
@@ -568,7 +568,39 @@
 
         function adjustTime(minutes) {
             timeRemaining += minutes * 60;
-            if (timeRemaining < 60) timeRemaining = 60;
+            
+            if (timeRemaining < 60) {
+                timeRemaining = 60;
+            }
+
+            if (currentMode === 'focus' && timeRemaining > 60 * 60) {
+                timeRemaining = 60 * 60;
+                showNotification(t('msgMaxFocus'));
+            }
+
+            let adjustedMinutes = Math.round(timeRemaining / 60);
+
+            if (currentMode === 'focus') {
+                let sliderValue = adjustedMinutes > 60 ? 60 : adjustedMinutes;
+                document.getElementById('set-focus').value = sliderValue;
+                document.getElementById('val-focus').textContent = sliderValue;
+                settings.focus = sliderValue;
+            } 
+            else if (currentMode === 'short') {
+                let maxShort = parseInt(document.getElementById('set-short').max) || 15;
+                let sliderValue = adjustedMinutes > maxShort ? maxShort : adjustedMinutes;
+                document.getElementById('set-short').value = sliderValue;
+                document.getElementById('val-short').textContent = sliderValue;
+                settings.short = sliderValue;
+            } 
+            else if (currentMode === 'long') {
+                let maxLong = parseInt(document.getElementById('set-long').max) || 45;
+                let sliderValue = adjustedMinutes > maxLong ? maxLong : adjustedMinutes;
+                document.getElementById('set-long').value = sliderValue;
+                document.getElementById('val-long').textContent = sliderValue;
+                settings.long = sliderValue;
+            }
+
             updateDisplay();
         }
 
