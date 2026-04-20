@@ -829,7 +829,7 @@
                 min="1"
                 max="60"
                 step="1"
-                oninput="updateSettings()"
+                oninput="updateSettings('focus')"
               />
             </div>
             <div class="setting-item">
@@ -845,7 +845,7 @@
                 min="1"
                 max="15"
                 step="1"
-                oninput="updateSettings()"
+                oninput="updateSettings('short')"
               />
             </div>
             <div class="setting-item">
@@ -861,7 +861,7 @@
                 min="10"
                 max="45"
                 step="5"
-                oninput="updateSettings()"
+                oninput="updateSettings('long')"
               />
             </div>
             <div class="setting-item">
@@ -876,7 +876,7 @@
                 min="1"
                 max="10"
                 step="1"
-                oninput="updateSettings()"
+                oninput="updateSettings('cycles')"
               />
             </div>
           </div>
@@ -1200,7 +1200,8 @@
         }
       }
 
-      function updateSettings() {
+      // NOVO: Recebe o modo alterado para atualizar em tempo real sem pausar
+      function updateSettings(modeChanged = null) {
         settings.focus =
           parseInt(document.getElementById("set-focus").value) || 25;
         settings.short =
@@ -1216,7 +1217,14 @@
         document.getElementById("val-cycles").textContent =
           settings.cyclesToLong;
 
-        if (!isRunning) resetTimer();
+        if (!isRunning) {
+          resetTimer();
+        } else if (modeChanged === currentMode) {
+          // Se o timer estiver rodando, ele só altera a contagem
+          // caso você esteja movendo a barra do modo ativo no momento
+          timeRemaining = settings[currentMode] * 60;
+          updateDisplay();
+        }
       }
 
       function formatTime(seconds) {
@@ -1520,6 +1528,7 @@
         }
       }
 
+      // Inicialização
       updateSettings();
       changeLanguage("pt");
     </script>
