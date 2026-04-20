@@ -1,654 +1,1458 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pomodoro Acessível - Temas Culinários</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        @font-face {
-            font-family: 'Cooper Black';
-            src: local('Cooper Black'), local('CooperBlack'), local('Arial Black');
-        }
+      @font-face {
+        font-family: "Cooper Black";
+        src: local("Cooper Black"), local("CooperBlack"), local("Arial Black");
+      }
 
-        /* TEMAS */
-        :root, body.theme-tomato {
-            --bg-light: #fbc4ab; --text-light: #5d2a27; --panel-light: #ffdab9; --accent: #e56b6f; --slider-track-light: rgba(93, 42, 39, 0.2);
-            --bg-dark: #1a0a09; --text-dark: #fbc4ab; --panel-dark: #2d1412; --slider-track-dark: rgba(251, 196, 171, 0.2);
-        }
-        body.theme-saffron {
-            --bg-light: #fdf2b3; --text-light: #5a4a00; --panel-light: #fff9d2; --accent: #d4ac0d; --slider-track-light: rgba(90, 74, 0, 0.2);
-            --bg-dark: #2a2400; --text-dark: #fdf2b3; --panel-dark: #4a3f00; --slider-track-dark: rgba(253, 242, 179, 0.2);
-        }
-        body.theme-oregano {
-            --bg-light: #c8e6c9; --text-light: #1b4332; --panel-light: #e8f5e9; --accent: #4caf50; --slider-track-light: rgba(27, 67, 50, 0.2);
-            --bg-dark: #081c15; --text-dark: #c8e6c9; --panel-dark: #143024; --slider-track-dark: rgba(200, 230, 201, 0.2);
-        }
-        body.theme-blueberry {
-            --bg-light: #d8d4ec; --text-light: #2d2a45; --panel-light: #eae7f5; --accent: #6b639e; --slider-track-light: rgba(45, 42, 69, 0.2);
-            --bg-dark: #12101e; --text-dark: #d8d4ec; --panel-dark: #1e1b30; --slider-track-dark: rgba(216, 212, 236, 0.2);
-        }
-        body.theme-herbs {
-            --bg-light: #e0e0e0; --text-light: #333333; --panel-light: #f5f5f5; --accent: #757575; --slider-track-light: rgba(51, 51, 51, 0.2);
-            --bg-dark: #1c1c1c; --text-dark: #e0e0e0; --panel-dark: #2a2a2a; --slider-track-dark: rgba(224, 224, 224, 0.2);
-        }
-        body.theme-pepper {
-            --bg-light: #2c2c2c; --text-light: #e0e0e0; --panel-light: #3a3a3a; --accent: #e8d671; --slider-track-light: rgba(224, 224, 224, 0.2);
-            --bg-dark: #000000; --text-dark: #e8d671; --panel-dark: #111111; --slider-track-dark: rgba(232, 214, 113, 0.3);
-        }
+      /* TEMAS */
+      :root,
+      body.theme-tomato {
+        --bg-light: #fbc4ab;
+        --text-light: #5d2a27;
+        --panel-light: #ffdab9;
+        --accent: #e56b6f;
+        --slider-track-light: rgba(93, 42, 39, 0.2);
+        --bg-dark: #1a0a09;
+        --text-dark: #fbc4ab;
+        --panel-dark: #2d1412;
+        --slider-track-dark: rgba(251, 196, 171, 0.2);
+      }
+      body.theme-saffron {
+        --bg-light: #fdf2b3;
+        --text-light: #5a4a00;
+        --panel-light: #fff9d2;
+        --accent: #d4ac0d;
+        --slider-track-light: rgba(90, 74, 0, 0.2);
+        --bg-dark: #2a2400;
+        --text-dark: #fdf2b3;
+        --panel-dark: #4a3f00;
+        --slider-track-dark: rgba(253, 242, 179, 0.2);
+      }
+      body.theme-oregano {
+        --bg-light: #c8e6c9;
+        --text-light: #1b4332;
+        --panel-light: #e8f5e9;
+        --accent: #4caf50;
+        --slider-track-light: rgba(27, 67, 50, 0.2);
+        --bg-dark: #081c15;
+        --text-dark: #c8e6c9;
+        --panel-dark: #143024;
+        --slider-track-dark: rgba(200, 230, 201, 0.2);
+      }
+      body.theme-blueberry {
+        --bg-light: #d8d4ec;
+        --text-light: #2d2a45;
+        --panel-light: #eae7f5;
+        --accent: #6b639e;
+        --slider-track-light: rgba(45, 42, 69, 0.2);
+        --bg-dark: #12101e;
+        --text-dark: #d8d4ec;
+        --panel-dark: #1e1b30;
+        --slider-track-dark: rgba(216, 212, 236, 0.2);
+      }
+      body.theme-herbs {
+        --bg-light: #e0e0e0;
+        --text-light: #333333;
+        --panel-light: #f5f5f5;
+        --accent: #757575;
+        --slider-track-light: rgba(51, 51, 51, 0.2);
+        --bg-dark: #1c1c1c;
+        --text-dark: #e0e0e0;
+        --panel-dark: #2a2a2a;
+        --slider-track-dark: rgba(224, 224, 224, 0.2);
+      }
+      body.theme-pepper {
+        --bg-light: #2c2c2c;
+        --text-light: #e0e0e0;
+        --panel-light: #3a3a3a;
+        --accent: #e8d671;
+        --slider-track-light: rgba(224, 224, 224, 0.2);
+        --bg-dark: #000000;
+        --text-dark: #e8d671;
+        --panel-dark: #111111;
+        --slider-track-dark: rgba(232, 214, 113, 0.3);
+      }
 
+      body {
+        font-family: "Cooper Black", serif;
+        background-color: var(--bg-light);
+        color: var(--text-light);
+        transition:
+          background-color 0.8s ease,
+          color 0.8s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+      body.dark-mode {
+        background-color: var(--bg-dark);
+        color: var(--text-dark);
+      }
+
+      /* SELETOR DE IDIOMAS */
+      .lang-selector-container {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: var(--panel-light);
+        padding: 5px 10px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.8s ease;
+        z-index: 100;
+      }
+      body.dark-mode .lang-selector-container {
+        background: var(--panel-dark);
+      }
+      select#lang-select {
+        background: transparent;
+        border: none;
+        color: var(--text-light);
+        font-family: "Quicksand", sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        outline: none;
+      }
+      body.dark-mode select#lang-select {
+        color: var(--text-dark);
+      }
+      select#lang-select option {
+        color: #000;
+      }
+
+      .app-layout {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        max-width: 1200px;
+        width: 100%;
+        height: 90vh;
+        align-items: stretch;
+        margin-top: 30px;
+      }
+
+      .theme-column {
+        width: 110px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        overflow-y: auto;
+        padding: 20px 10px;
+      }
+      .theme-column h3 {
+        margin-top: 0;
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+      }
+      .theme-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+      }
+      .theme-label {
+        font-size: 0.85rem;
+        text-align: center;
+        line-height: 1.2;
+      }
+      .theme-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 3px solid rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          border-color 0.2s;
+        padding: 0;
+        min-width: unset;
+      }
+      body.dark-mode .theme-btn {
+        border: 3px solid rgba(255, 255, 255, 0.2);
+      }
+      .theme-btn:hover {
+        transform: scale(0.9);
+      }
+      .theme-btn.active {
+        border-color: var(--text-light);
+        transform: scale(1.1);
+      }
+      body.dark-mode .theme-btn.active {
+        border-color: var(--text-dark);
+      }
+
+      .main-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+      }
+      .history-column {
+        width: 300px;
+        background-color: var(--panel-light);
+        border-radius: 30px;
+        padding: 25px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+        transition: background-color 0.8s ease;
+      }
+      body.dark-mode .history-column {
+        background-color: var(--panel-dark);
+      }
+
+      .panel {
+        background-color: var(--panel-light);
+        padding: clamp(20px, 3vw, 30px);
+        border-radius: 30px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        transition: background-color 0.8s ease;
+        text-align: center;
+      }
+      body.dark-mode .panel {
+        background-color: var(--panel-dark);
+      }
+
+      h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        margin-top: 0;
+        margin-bottom: 5px;
+        letter-spacing: -1px;
+      }
+      h2,
+      h3 {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-weight: normal;
+      }
+
+      #status {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      #timer {
+        font-size: clamp(4rem, 10vw, 8rem);
+        margin: 5px 0;
+        font-variant-numeric: tabular-nums;
+        line-height: 1;
+      }
+
+      .controls,
+      .adjust-time {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+      }
+
+      button {
+        font-family: inherit;
+        font-size: 1.1rem;
+        padding: 12px 20px;
+        border: 3px solid currentColor;
+        border-radius: 20px;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 60px;
+      }
+      button:hover {
+        transform: translateY(-3px);
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      button:active {
+        transform: translateY(0);
+      }
+      button:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .btn-finish {
+        border-color: #d90429;
+        color: #d90429;
+        width: 100%;
+      }
+      body.dark-mode .btn-finish {
+        border-color: #ff4d6d;
+        color: #ff4d6d;
+      }
+      body.theme-pepper .btn-finish {
+        border-color: #ff4d6d;
+        color: #ff4d6d;
+      }
+
+      .settings-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        justify-content: center;
+      }
+      .setting-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 15px;
+        border-radius: 20px;
+      }
+      body.dark-mode .setting-item {
+        background: rgba(0, 0, 0, 0.2);
+      }
+      .setting-item label {
+        margin-bottom: 10px;
+        font-size: 1rem;
+      }
+      .val-display {
+        font-size: 1.3rem;
+        color: var(--accent);
+      }
+
+      input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        background: transparent;
+        margin: 10px 0;
+      }
+      input[type="range"]:focus {
+        outline: none;
+      }
+      input[type="range"]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 10px;
+        cursor: pointer;
+        background: var(--slider-track-light);
+        border-radius: 10px;
+      }
+      body.dark-mode input[type="range"]::-webkit-slider-runnable-track {
+        background: var(--slider-track-dark);
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        height: 24px;
+        width: 24px;
+        border-radius: 50%;
+        background: var(--text-light);
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -7px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+      body.dark-mode input[type="range"]::-webkit-slider-thumb {
+        background: var(--text-dark);
+      }
+
+      #history {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex: 1;
+        overflow-y: auto;
+        scroll-behavior: smooth;
+        font-size: 1.1rem;
+        text-align: left;
+        padding-right: 10px;
+      }
+      #history li {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        line-height: 1.4;
+      }
+      body.dark-mode #history li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .history-date {
+        font-size: 0.9rem;
+        opacity: 0.7;
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      #history::-webkit-scrollbar {
+        width: 8px;
+      }
+      #history::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      #history::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+      }
+      body.dark-mode #history::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .notification {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--accent);
+        color: white;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-size: 1.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        transition:
+          top 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+          opacity 0.5s ease;
+        text-align: center;
+      }
+      .notification.hidden {
+        top: -100px;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      /* BOTOES INFERIORES DIREITOS (Flutuantes com Hover) */
+      .floating-actions {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 90;
+        align-items: flex-end;
+      }
+      .action-item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 12px;
+        cursor: pointer;
+      }
+
+      .action-label {
+        background-color: var(--panel-light);
+        color: var(--text-light);
+        padding: 8px 15px;
+        border-radius: 15px;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 600;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        opacity: 0;
+        transform: translateX(10px);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        pointer-events: none;
+      }
+      body.dark-mode .action-label {
+        background-color: var(--panel-dark);
+        color: var(--text-dark);
+      }
+
+      .action-item:hover .action-label {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .action-icon-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--panel-light);
+        border: 3px solid var(--text-light);
+        color: var(--text-light);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        font-size: 1.5rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease;
+        cursor: pointer;
+        padding: 0;
+        min-width: unset;
+      }
+      body.dark-mode .action-icon-btn {
+        background-color: var(--panel-dark);
+        border-color: var(--text-dark);
+        color: var(--text-dark);
+      }
+
+      .action-item:hover .action-icon-btn {
+        transform: scale(1.15);
+      }
+
+      /* MODAL DE CONTATO */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+      .modal-overlay.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .modal-content {
+        background-color: var(--bg-light);
+        color: var(--text-light);
+        padding: 40px;
+        border-radius: 30px;
+        width: 90%;
+        max-width: 400px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        transform: translateY(0);
+        transition: transform 0.3s ease;
+      }
+      body.dark-mode .modal-content {
+        background-color: var(--bg-dark);
+        color: var(--text-dark);
+      }
+      .modal-overlay.hidden .modal-content {
+        transform: translateY(50px);
+      }
+
+      .modal-content h2 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 2rem;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        text-align: left;
+      }
+      .form-group label {
+        font-size: 1rem;
+        margin-bottom: 5px;
+      }
+      .form-group input,
+      .form-group textarea {
+        font-family: "Quicksand", sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 12px;
+        border-radius: 15px;
+        border: 2px solid var(--text-light);
+        background: var(--panel-light);
+        color: var(--text-light);
+        resize: none;
+        outline: none;
+      }
+      body.dark-mode .form-group input,
+      body.dark-mode .form-group textarea {
+        border-color: var(--text-dark);
+        background: var(--panel-dark);
+        color: var(--text-dark);
+      }
+      .modal-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 25px;
+      }
+      .modal-buttons button {
+        flex: 1;
+        font-size: 1rem;
+        padding: 10px;
+      }
+
+      @media (max-width: 850px) {
         body {
-            font-family: 'Cooper Black', serif; background-color: var(--bg-light); color: var(--text-light);
-            transition: background-color 0.8s ease, color 0.8s ease; display: flex; justify-content: center; align-items: center;
-            height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; overflow: hidden;
+          height: auto;
+          overflow: auto;
         }
-        body.dark-mode { background-color: var(--bg-dark); color: var(--text-dark); }
-
-        /* SELETOR DE IDIOMAS */
-        .lang-selector-container {
-            position: absolute; top: 20px; right: 20px; background: var(--panel-light);
-            padding: 5px 10px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: background-color 0.8s ease; z-index: 100;
-        }
-        body.dark-mode .lang-selector-container { background: var(--panel-dark); }
-        select#lang-select {
-            background: transparent; border: none; color: var(--text-light);
-            font-family: 'Quicksand', sans-serif; font-weight: 600; font-size: 1rem; cursor: pointer; outline: none;
-        }
-        body.dark-mode select#lang-select { color: var(--text-dark); }
-        select#lang-select option { color: #000; }
-
         .app-layout {
-            display: flex; flex-direction: row; gap: 20px; max-width: 1200px; width: 100%; height: 90vh; align-items: stretch; margin-top: 30px; 
+          flex-direction: column;
+          height: auto;
+          align-items: center;
+          margin-top: 50px;
         }
-
         .theme-column {
-            width: 110px; display: flex; flex-direction: column; align-items: center; gap: 15px; overflow-y: auto; padding: 20px 10px;
+          flex-direction: row;
+          width: 100%;
+          justify-content: center;
+          flex-wrap: wrap;
+          padding-bottom: 10px;
         }
-        .theme-column h3 { margin-top: 0; font-size: 1.3rem; margin-bottom: 5px; }
-        .theme-item { display: flex; flex-direction: column; align-items: center; gap: 5px; }
-        .theme-label { font-size: 0.85rem; text-align: center; line-height: 1.2; }
-        .theme-btn {
-            width: 50px; height: 50px; border-radius: 50%; border: 3px solid rgba(0, 0, 0, 0.15); cursor: pointer;
-            transition: transform 0.2s, border-color 0.2s; padding: 0; min-width: unset;
+        .theme-column h3 {
+          width: 100%;
+          margin-bottom: 5px;
         }
-        body.dark-mode .theme-btn { border: 3px solid rgba(255, 255, 255, 0.2); }
-        .theme-btn:hover { transform: scale(0.9); }
-        .theme-btn.active { border-color: var(--text-light); transform: scale(1.1); }
-        body.dark-mode .theme-btn.active { border-color: var(--text-dark); }
-
-        .main-column { flex: 1; display: flex; flex-direction: column; gap: 20px; justify-content: center; }
         .history-column {
-            width: 300px; background-color: var(--panel-light); border-radius: 30px; padding: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            display: flex; flex-direction: column; transition: background-color 0.8s ease;
+          width: 100%;
+          box-sizing: border-box;
+          max-height: 400px;
         }
-        body.dark-mode .history-column { background-color: var(--panel-dark); }
-
-        .panel {
-            background-color: var(--panel-light); padding: clamp(20px, 3vw, 30px); border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            transition: background-color 0.8s ease; text-align: center;
+        .main-column {
+          width: 100%;
         }
-        body.dark-mode .panel { background-color: var(--panel-dark); }
-
-        h1 { font-size: clamp(2rem, 5vw, 3rem); margin-top: 0; margin-bottom: 5px; letter-spacing: -1px; }
-        h2, h3 { text-align: center; margin-top: 0; margin-bottom: 15px; font-weight: normal;}
-
-        #status { font-size: 1.5rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
-        #timer { font-size: clamp(4rem, 10vw, 8rem); margin: 5px 0; font-variant-numeric: tabular-nums; line-height: 1; }
-
-        .controls, .adjust-time { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 15px; }
-
-        button {
-            font-family: inherit; font-size: 1.1rem; padding: 12px 20px; border: 3px solid currentColor; border-radius: 20px; background: transparent;
-            color: inherit; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; min-width: 60px;
+        .settings-container {
+          grid-template-columns: 1fr;
         }
-        button:hover { transform: translateY(-3px); background-color: rgba(255, 255, 255, 0.1); }
-        button:active { transform: translateY(0); }
-        button:disabled { opacity: 0.3; cursor: not-allowed; transform: none; }
-
-        .btn-finish { border-color: #d90429; color: #d90429; width: 100%;}
-        body.dark-mode .btn-finish { border-color: #ff4d6d; color: #ff4d6d; }
-        body.theme-pepper .btn-finish { border-color: #ff4d6d; color: #ff4d6d; } 
-
-        .settings-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; justify-content: center; }
-        .setting-item {
-            display: flex; flex-direction: column; align-items: center; background: rgba(255, 255, 255, 0.2); padding: 15px; border-radius: 20px;
-        }
-        body.dark-mode .setting-item { background: rgba(0, 0, 0, 0.2); }
-        .setting-item label { margin-bottom: 10px; font-size: 1rem; }
-        .val-display { font-size: 1.3rem; color: var(--accent); }
-
-        input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; background: transparent; margin: 10px 0; }
-        input[type=range]:focus { outline: none; }
-        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 10px; cursor: pointer; background: var(--slider-track-light); border-radius: 10px; }
-        body.dark-mode input[type=range]::-webkit-slider-runnable-track { background: var(--slider-track-dark); }
-        input[type=range]::-webkit-slider-thumb {
-            height: 24px; width: 24px; border-radius: 50%; background: var(--text-light); cursor: pointer; -webkit-appearance: none; margin-top: -7px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        body.dark-mode input[type=range]::-webkit-slider-thumb { background: var(--text-dark); }
-
-        #history {
-            list-style: none; padding: 0; margin: 0; flex: 1; overflow-y: auto; scroll-behavior: smooth; font-size: 1.1rem; text-align: left; padding-right: 10px; 
-        }
-        #history li { padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.1); line-height: 1.4; }
-        body.dark-mode #history li { border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .history-date { font-size: 0.9rem; opacity: 0.7; display: block; margin-bottom: 4px; }
-
-        #history::-webkit-scrollbar { width: 8px; }
-        #history::-webkit-scrollbar-track { background: transparent; }
-        #history::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 10px; }
-        body.dark-mode #history::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); }
-
-        .notification {
-            position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: var(--accent); color: white; padding: 15px 40px; border-radius: 50px;
-            font-size: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 1000; transition: top 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.5s ease;
-        }
-        .notification.hidden { top: -100px; opacity: 0; pointer-events: none; }
-
-        /* BOTOES INFERIORES DIREITOS (Flutuantes com Hover) */
         .floating-actions {
-            position: absolute; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 90; align-items: flex-end;
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
         }
-        .action-item {
-            display: flex; align-items: center; justify-content: flex-end; gap: 12px; cursor: pointer;
-        }
-        
-        .action-label {
-            background-color: var(--panel-light); color: var(--text-light);
-            padding: 8px 15px; border-radius: 15px; font-family: 'Quicksand', sans-serif;
-            font-weight: 600; font-size: 0.9rem; white-space: nowrap;
-            opacity: 0; transform: translateX(10px); transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15); pointer-events: none;
-        }
-        body.dark-mode .action-label { background-color: var(--panel-dark); color: var(--text-dark); }
-        
-        .action-item:hover .action-label { opacity: 1; transform: translateX(0); }
-
-        .action-icon-btn {
-            width: 50px; height: 50px; border-radius: 50%; background-color: var(--panel-light); border: 3px solid var(--text-light);
-            color: var(--text-light); display: flex; justify-content: center; align-items: center; text-decoration: none; font-size: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: all 0.2s ease; cursor: pointer; padding: 0; min-width: unset;
-        }
-        body.dark-mode .action-icon-btn { background-color: var(--panel-dark); border-color: var(--text-dark); color: var(--text-dark); }
-        
-        .action-item:hover .action-icon-btn { transform: scale(1.15); }
-
-        /* MODAL DE CONTATO */
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7);
-            display: flex; justify-content: center; align-items: center; z-index: 999; opacity: 1; transition: opacity 0.3s ease;
-        }
-        .modal-overlay.hidden { opacity: 0; pointer-events: none; }
-        
-        .modal-content {
-            background-color: var(--bg-light); color: var(--text-light); padding: 40px; border-radius: 30px;
-            width: 90%; max-width: 400px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); transform: translateY(0); transition: transform 0.3s ease;
-        }
-        body.dark-mode .modal-content { background-color: var(--bg-dark); color: var(--text-dark); }
-        .modal-overlay.hidden .modal-content { transform: translateY(50px); }
-
-        .modal-content h2 { margin-top: 0; margin-bottom: 20px; font-size: 2rem;}
-        .form-group { display: flex; flex-direction: column; margin-bottom: 15px; text-align: left;}
-        .form-group label { font-size: 1rem; margin-bottom: 5px;}
-        .form-group input, .form-group textarea {
-            font-family: 'Quicksand', sans-serif; font-size: 1rem; font-weight: 600; padding: 12px; border-radius: 15px;
-            border: 2px solid var(--text-light); background: var(--panel-light); color: var(--text-light); resize: none; outline: none;
-        }
-        body.dark-mode .form-group input, body.dark-mode .form-group textarea {
-            border-color: var(--text-dark); background: var(--panel-dark); color: var(--text-dark);
-        }
-        .modal-buttons { display: flex; gap: 10px; margin-top: 25px; }
-        .modal-buttons button { flex: 1; font-size: 1rem; padding: 10px;}
-        
-        @media (max-width: 850px) {
-            body { height: auto; overflow: auto; }
-            .app-layout { flex-direction: column; height: auto; align-items: center; margin-top: 50px; }
-            .theme-column { flex-direction: row; width: 100%; justify-content: center; flex-wrap: wrap; padding-bottom: 10px;}
-            .theme-column h3 { width: 100%; margin-bottom: 5px; }
-            .history-column { width: 100%; box-sizing: border-box; max-height: 400px; }
-            .main-column { width: 100%; }
-            .settings-container { grid-template-columns: 1fr; }
-            .floating-actions { position: fixed; bottom: 20px; right: 20px; }
-        }
+      }
     </style>
-</head>
-<body class="theme-tomato">
-
+  </head>
+  <body class="theme-tomato">
     <div class="lang-selector-container">
-        <select id="lang-select" onchange="changeLanguage(this.value)">
-            <option value="pt">🇧🇷 PT</option>
-            <option value="en">🇺🇸 EN</option>
-            <option value="es">🇪🇸 ES</option>
-        </select>
+      <select id="lang-select" onchange="changeLanguage(this.value)">
+        <option value="pt">🇧🇷 PT</option>
+        <option value="en">🇺🇸 EN</option>
+        <option value="es">🇪🇸 ES</option>
+      </select>
     </div>
 
     <div class="floating-actions">
-        
-        <div class="action-item">
-            <span class="action-label" data-i18n="lblPortfolio">Portfólio</span>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="action-icon-btn">🌐</a>
-        </div>
-        
-        <div class="action-item">
-            <span class="action-label">GitHub</span>
-            <a href="https://github.com/lucasyamaguchi" target="_blank" rel="noopener noreferrer" class="action-icon-btn">🐙</a>
-        </div>
-
-        <div class="action-item">
-            <span class="action-label" data-i18n="lblCoffee">Buy me a coffee</span>
-            <a href="https://www.paypal.com/donate/?hosted_button_id=8T8APU4MLGTFY" target="_blank" rel="noopener noreferrer" class="action-icon-btn">☕</a>
-        </div>
-
-        <div class="action-item">
-            <span class="action-label" data-i18n="lblEmail">E-mail</span>
-            <button onclick="toggleModal(true)" class="action-icon-btn" style="border-width: 3px;">✉️</button>
-        </div>
-
+      <div class="action-item">
+        <span class="action-label" data-i18n="lblPortfolio">Portfólio</span>
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="action-icon-btn"
+          >🌐</a
+        >
+      </div>
+      <div class="action-item">
+        <span class="action-label">GitHub</span>
+        <a
+          href="https://github.com/lucasyamaguchi"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="action-icon-btn"
+          >🐙</a
+        >
+      </div>
+      <div class="action-item">
+        <span class="action-label" data-i18n="lblCoffee">Buy me a coffee</span>
+        <a
+          href="https://www.paypal.com/donate/?hosted_button_id=8T8APU4MLGTFY"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="action-icon-btn"
+          >☕</a
+        >
+      </div>
+      <div class="action-item">
+        <span class="action-label" data-i18n="lblEmail">E-mail</span>
+        <button
+          onclick="toggleModal(true)"
+          class="action-icon-btn"
+          style="border-width: 3px"
+        >
+          ✉️
+        </button>
+      </div>
     </div>
 
     <div id="contact-modal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <h2 data-i18n="modalTitle">Contato</h2>
-            <form id="contact-form" action="https://formspree.io/f/SEU_LINK_AQUI" method="POST">
-                <div class="form-group">
-                    <label for="contact-contact" data-i18n="modalEmail">Seu E-mail ou Telefone</label>
-                    <input type="text" id="contact-contact" name="contact" required>
-                </div>
-                <div class="form-group">
-                    <label for="contact-message" data-i18n="modalMsg">Sua Mensagem</label>
-                    <textarea id="contact-message" name="message" rows="4" required></textarea>
-                </div>
-                <div class="modal-buttons">
-                    <button type="button" onclick="toggleModal(false)" data-i18n="modalCancel" style="border-color: #e56b6f; color: #e56b6f;">Cancelar</button>
-                    <button type="submit" data-i18n="modalSend">Enviar</button>
-                </div>
-            </form>
-        </div>
+      <div class="modal-content">
+        <h2 data-i18n="modalTitle">Contato</h2>
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/SEU_LINK_AQUI"
+          method="POST"
+        >
+          <div class="form-group">
+            <label for="contact-contact" data-i18n="modalEmail"
+              >Seu E-mail ou Telefone</label
+            >
+            <input type="text" id="contact-contact" name="contact" required />
+          </div>
+          <div class="form-group">
+            <label for="contact-message" data-i18n="modalMsg"
+              >Sua Mensagem</label
+            >
+            <textarea
+              id="contact-message"
+              name="message"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <div class="modal-buttons">
+            <button
+              type="button"
+              onclick="toggleModal(false)"
+              data-i18n="modalCancel"
+              style="border-color: #e56b6f; color: #e56b6f"
+            >
+              Cancelar
+            </button>
+            <button type="submit" data-i18n="modalSend">Enviar</button>
+          </div>
+        </form>
+      </div>
     </div>
 
-    <div id="page-notification" class="notification hidden">Ciclo Finalizado!</div>
+    <div id="page-notification" class="notification hidden">
+      Ciclo Finalizado!
+    </div>
 
     <div class="app-layout">
-        <div class="theme-column panel">
-            <h3 data-i18n="titleThemes">Temas</h3>
-            <div class="theme-item"><button class="theme-btn active" style="background: #fbc4ab;" onclick="setTheme('theme-tomato', this)"></button><span class="theme-label" data-i18n="themeTomato">Tomate</span></div>
-            <div class="theme-item"><button class="theme-btn" style="background: #fdf2b3;" onclick="setTheme('theme-saffron', this)"></button><span class="theme-label" data-i18n="themeSaffron">Açafrão</span></div>
-            <div class="theme-item"><button class="theme-btn" style="background: #c8e6c9;" onclick="setTheme('theme-oregano', this)"></button><span class="theme-label" data-i18n="themeOregano">Orégano</span></div>
-            <div class="theme-item"><button class="theme-btn" style="background: #d8d4ec;" onclick="setTheme('theme-blueberry', this)"></button><span class="theme-label" data-i18n="themeBlueberry">Mirtilo</span></div>
-            <div class="theme-item"><button class="theme-btn" style="background: #e0e0e0;" onclick="setTheme('theme-herbs', this)"></button><span class="theme-label" data-i18n="themeHerbs">Ervas Secas</span></div>
-            <div class="theme-item"><button class="theme-btn" style="background: #2c2c2c;" onclick="setTheme('theme-pepper', this)"></button><span class="theme-label" data-i18n="themePepper">Pimenta<br>do Reino</span></div>
+      <div class="theme-column panel">
+        <h3 data-i18n="titleThemes">Temas</h3>
+        <div class="theme-item">
+          <button
+            class="theme-btn active"
+            style="background: #fbc4ab"
+            onclick="setTheme('theme-tomato', this)"
+          ></button
+          ><span class="theme-label" data-i18n="themeTomato">Tomate</span>
+        </div>
+        <div class="theme-item">
+          <button
+            class="theme-btn"
+            style="background: #fdf2b3"
+            onclick="setTheme('theme-saffron', this)"
+          ></button
+          ><span class="theme-label" data-i18n="themeSaffron">Açafrão</span>
+        </div>
+        <div class="theme-item">
+          <button
+            class="theme-btn"
+            style="background: #c8e6c9"
+            onclick="setTheme('theme-oregano', this)"
+          ></button
+          ><span class="theme-label" data-i18n="themeOregano">Orégano</span>
+        </div>
+        <div class="theme-item">
+          <button
+            class="theme-btn"
+            style="background: #d8d4ec"
+            onclick="setTheme('theme-blueberry', this)"
+          ></button
+          ><span class="theme-label" data-i18n="themeBlueberry">Mirtilo</span>
+        </div>
+        <div class="theme-item">
+          <button
+            class="theme-btn"
+            style="background: #e0e0e0"
+            onclick="setTheme('theme-herbs', this)"
+          ></button
+          ><span class="theme-label" data-i18n="themeHerbs">Ervas Secas</span>
+        </div>
+        <div class="theme-item">
+          <button
+            class="theme-btn"
+            style="background: #2c2c2c"
+            onclick="setTheme('theme-pepper', this)"
+          ></button
+          ><span class="theme-label" data-i18n="themePepper"
+            >Pimenta<br />do Reino</span
+          >
+        </div>
+      </div>
+
+      <div class="main-column">
+        <div class="panel">
+          <h1>Pomodoro</h1>
+          <div id="status">Pronto para Focar</div>
+          <div id="timer">25:00</div>
+          <div class="adjust-time">
+            <button onclick="adjustTime(-1)">- 1'</button>
+            <button onclick="adjustTime(1)">+ 1'</button>
+          </div>
+          <div class="controls">
+            <button id="btn-start" onclick="startTimer()">▶️</button>
+            <button id="btn-pause" onclick="pauseTimer()" disabled>⏸️</button>
+            <button id="btn-reset" onclick="resetTimer()">⏹️</button>
+          </div>
+          <div
+            class="controls"
+            style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px"
+          >
+            <button
+              class="btn-finish"
+              id="btn-finish"
+              onclick="handlePhaseComplete()"
+              disabled
+              data-i18n="btnFinish"
+            >
+              Concluir Ciclo
+            </button>
+            <button class="btn-pip" onclick="togglePiP()" data-i18n="btnPip">
+              📌 Janela Flutuante
+            </button>
+          </div>
         </div>
 
-        <div class="main-column">
-            <div class="panel">
-                <h1>Pomodoro</h1>
-                <div id="status">Pronto para Focar</div>
-                <div id="timer">25:00</div>
-                <div class="adjust-time">
-                    <button onclick="adjustTime(-1)">- 1'</button>
-                    <button onclick="adjustTime(1)">+ 1'</button>
-                </div>
-                <div class="controls">
-                    <button id="btn-start" onclick="startTimer()">▶️</button>
-                    <button id="btn-pause" onclick="pauseTimer()" disabled>⏸️</button>
-                    <button id="btn-reset" onclick="resetTimer()">⏹️</button>
-                </div>
-                <div class="controls" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <button class="btn-finish" id="btn-finish" onclick="handlePhaseComplete()" disabled data-i18n="btnFinish">Concluir Ciclo</button>
-                    <button class="btn-pip" onclick="togglePiP()" data-i18n="btnPip">📌 Janela Flutuante</button>
-                </div>
+        <div class="panel">
+          <h2 data-i18n="titleSettings">Ajustes de Tempo</h2>
+          <div class="settings-container">
+            <div class="setting-item">
+              <label for="set-focus"
+                ><span data-i18n="lblFocus">Foco:</span>
+                <span id="val-focus" class="val-display">25</span>
+                <span data-i18n="min">min</span></label
+              >
+              <input
+                type="range"
+                id="set-focus"
+                value="25"
+                min="1"
+                max="60"
+                step="1"
+                oninput="updateSettings()"
+              />
             </div>
-
-            <div class="panel">
-                <h2 data-i18n="titleSettings">Ajustes de Tempo</h2>
-                <div class="settings-container">
-                    <div class="setting-item">
-                        <label for="set-focus"><span data-i18n="lblFocus">Foco:</span> <span id="val-focus" class="val-display">25</span> <span data-i18n="min">min</span></label>
-                        <input type="range" id="set-focus" value="25" min="1" max="60" step="1" oninput="updateSettings()">
-                    </div>
-                    <div class="setting-item">
-                        <label for="set-short"><span data-i18n="lblShort">Pausa Curta:</span> <span id="val-short" class="val-display">5</span> <span data-i18n="min">min</span></label>
-                        <input type="range" id="set-short" value="5" min="1" max="15" step="1" oninput="updateSettings()">
-                    </div>
-                    <div class="setting-item">
-                        <label for="set-long"><span data-i18n="lblLong">Pausa Longa:</span> <span id="val-long" class="val-display">15</span> <span data-i18n="min">min</span></label>
-                        <input type="range" id="set-long" value="15" min="10" max="45" step="5" oninput="updateSettings()">
-                    </div>
-                    <div class="setting-item">
-                        <label for="set-cycles"><span data-i18n="lblCycles">Ciclos p/ Pausa Longa:</span> <span id="val-cycles" class="val-display">4</span></label>
-                        <input type="range" id="set-cycles" value="4" min="1" max="10" step="1" oninput="updateSettings()">
-                    </div>
-                </div>
+            <div class="setting-item">
+              <label for="set-short"
+                ><span data-i18n="lblShort">Pausa Curta:</span>
+                <span id="val-short" class="val-display">5</span>
+                <span data-i18n="min">min</span></label
+              >
+              <input
+                type="range"
+                id="set-short"
+                value="5"
+                min="1"
+                max="15"
+                step="1"
+                oninput="updateSettings()"
+              />
             </div>
+            <div class="setting-item">
+              <label for="set-long"
+                ><span data-i18n="lblLong">Pausa Longa:</span>
+                <span id="val-long" class="val-display">15</span>
+                <span data-i18n="min">min</span></label
+              >
+              <input
+                type="range"
+                id="set-long"
+                value="15"
+                min="10"
+                max="45"
+                step="5"
+                oninput="updateSettings()"
+              />
+            </div>
+            <div class="setting-item">
+              <label for="set-cycles"
+                ><span data-i18n="lblCycles">Ciclos p/ Pausa Longa:</span>
+                <span id="val-cycles" class="val-display">4</span></label
+              >
+              <input
+                type="range"
+                id="set-cycles"
+                value="4"
+                min="1"
+                max="10"
+                step="1"
+                oninput="updateSettings()"
+              />
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div class="history-column">
-            <h3 data-i18n="titleHistory">Histórico</h3>
-            <ul id="history"></ul>
-        </div>
+      <div class="history-column">
+        <h3 data-i18n="titleHistory">Histórico</h3>
+        <ul id="history"></ul>
+      </div>
     </div>
 
     <script>
-        const i18n = {
-            pt: {
-                titleSettings: "Ajustes de Tempo", titleHistory: "Histórico", titleThemes: "Temas",
-                statusReady: "Pronto para Focar", statusFocus: "Foco", statusShort: "Pausa Curta", statusLong: "Pausa Longa",
-                statusReadyShort: "Pronto: Pausa Curta", statusReadyLong: "Pronto: Pausa Longa", paused: "(Pausado)",
-                btnFinish: "Concluir Ciclo", btnPip: "📌 Janela Flutuante",
-                lblFocus: "Foco:", lblShort: "Pausa Curta:", lblLong: "Pausa Longa:", lblCycles: "Ciclos p/ Pausa Longa:", min: "min",
-                themeTomato: "Tomate", themeSaffron: "Açafrão", themeOregano: "Orégano", themeBlueberry: "Mirtilo", themeHerbs: "Ervas Secas", themePepper: "Pimenta<br>do Reino",
-                msgFocusDone: "Foco Finalizado! Hora da pausa.", msgBreakDone: "Pausa Finalizada! Hora de focar.",
-                logFocus: "✅ Foco concluído", logBreak: "☕ Pausa finalizada",
-                months: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
-                modalTitle: "Me mande uma mensagem", modalEmail: "Seu E-mail ou Telefone", modalMsg: "Sua Mensagem", modalCancel: "Cancelar", modalSend: "Enviar", modalSuccess: "Mensagem Enviada!",
-                lblPortfolio: "Portfólio", lblCoffee: "Me pague um café", lblEmail: "E-mail",
-                msgMaxFocus: "Aviso: O tempo de foco não pode exceder 60 minutos!"
-            },
-            en: {
-                titleSettings: "Time Settings", titleHistory: "History", titleThemes: "Themes",
-                statusReady: "Ready to Focus", statusFocus: "Focus", statusShort: "Short Break", statusLong: "Long Break",
-                statusReadyShort: "Ready: Short Break", statusReadyLong: "Ready: Long Break", paused: "(Paused)",
-                btnFinish: "Finish Cycle", btnPip: "📌 Floating Window",
-                lblFocus: "Focus:", lblShort: "Short Break:", lblLong: "Long Break:", lblCycles: "Cycles to Long Break:", min: "min",
-                themeTomato: "Tomato", themeSaffron: "Saffron", themeOregano: "Oregano", themeBlueberry: "Blueberry", themeHerbs: "Dried Herbs", themePepper: "Black<br>Pepper",
-                msgFocusDone: "Focus finished! Time for a break.", msgBreakDone: "Break finished! Time to focus.",
-                logFocus: "✅ Focus completed", logBreak: "☕ Break finished",
-                months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                modalTitle: "Send me a message", modalEmail: "Your Email or Phone", modalMsg: "Your Message", modalCancel: "Cancel", modalSend: "Send", modalSuccess: "Message Sent!",
-                lblPortfolio: "Portfolio", lblCoffee: "Buy me a coffee", lblEmail: "E-mail",
-                msgMaxFocus: "Warning: Focus time cannot exceed 60 minutes!"
-            },
-            es: {
-                titleSettings: "Ajustes de Tiempo", titleHistory: "Historial", titleThemes: "Temas",
-                statusReady: "Listo para Enfocar", statusFocus: "Enfoque", statusShort: "Pausa Corta", statusLong: "Pausa Larga",
-                statusReadyShort: "Listo: Pausa Corta", statusReadyLong: "Listo: Pausa Larga", paused: "(Pausado)",
-                btnFinish: "Concluir Ciclo", btnPip: "📌 Ventana Flotante",
-                lblFocus: "Enfoque:", lblShort: "Pausa Corta:", lblLong: "Pausa Larga:", lblCycles: "Ciclos p/ Pausa Larga:", min: "min",
-                themeTomato: "Tomate", themeSaffron: "Azafrán", themeOregano: "Orégano", themeBlueberry: "Arándano", themeHerbs: "Hierbas Secas", themePepper: "Pimienta<br>Negra",
-                msgFocusDone: "¡Enfoque terminado! Hora de una pausa.", msgBreakDone: "¡Pausa terminada! Hora de enfocar.",
-                logFocus: "✅ Enfoque completado", logBreak: "☕ Pausa finalizada",
-                months: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
-                modalTitle: "Envíame un mensaje", modalEmail: "Tu Email o Teléfono", modalMsg: "Tu Mensaje", modalCancel: "Cancelar", modalSend: "Enviar", modalSuccess: "¡Mensaje Enviado!",
-                lblPortfolio: "Portafolio", lblCoffee: "Cómprame un café", lblEmail: "Email",
-                msgMaxFocus: "Aviso: ¡El tiempo de enfoque no puede exceder los 60 minutos!"
-            }
-        };
+      const i18n = {
+        pt: {
+          titleSettings: "Ajustes de Tempo",
+          titleHistory: "Histórico",
+          titleThemes: "Temas",
+          statusReady: "Pronto para Focar",
+          statusFocus: "Foco",
+          statusShort: "Pausa Curta",
+          statusLong: "Pausa Longa",
+          statusReadyShort: "Pronto: Pausa Curta",
+          statusReadyLong: "Pronto: Pausa Longa",
+          paused: "(Pausado)",
+          btnFinish: "Concluir Ciclo",
+          btnPip: "📌 Janela Flutuante",
+          lblFocus: "Foco:",
+          lblShort: "Pausa Curta:",
+          lblLong: "Pausa Longa:",
+          lblCycles: "Ciclos p/ Pausa Longa:",
+          min: "min",
+          themeTomato: "Tomate",
+          themeSaffron: "Açafrão",
+          themeOregano: "Orégano",
+          themeBlueberry: "Mirtilo",
+          themeHerbs: "Ervas Secas",
+          themePepper: "Pimenta<br>do Reino",
+          msgFocusDone: "Foco Finalizado! Hora da pausa.",
+          msgBreakDone: "Pausa Finalizada! Hora de focar.",
+          logFocus: "✅ Foco concluído",
+          logBreak: "☕ Pausa finalizada",
+          months: [
+            "Jan",
+            "Fev",
+            "Mar",
+            "Abr",
+            "Mai",
+            "Jun",
+            "Jul",
+            "Ago",
+            "Set",
+            "Out",
+            "Nov",
+            "Dez",
+          ],
+          modalTitle: "Me mande uma mensagem",
+          modalEmail: "Seu E-mail ou Telefone",
+          modalMsg: "Sua Mensagem",
+          modalCancel: "Cancelar",
+          modalSend: "Enviar",
+          modalSuccess: "Mensagem Enviada!",
+          lblPortfolio: "Portfólio",
+          lblCoffee: "Me pague um café",
+          lblEmail: "E-mail",
+          msgMaxFocus: "Aviso: O tempo de foco não pode exceder 60 minutos!",
+        },
+        en: {
+          titleSettings: "Time Settings",
+          titleHistory: "History",
+          titleThemes: "Themes",
+          statusReady: "Ready to Focus",
+          statusFocus: "Focus",
+          statusShort: "Short Break",
+          statusLong: "Long Break",
+          statusReadyShort: "Ready: Short Break",
+          statusReadyLong: "Ready: Long Break",
+          paused: "(Paused)",
+          btnFinish: "Finish Cycle",
+          btnPip: "📌 Floating Window",
+          lblFocus: "Focus:",
+          lblShort: "Short Break:",
+          lblLong: "Long Break:",
+          lblCycles: "Cycles to Long Break:",
+          min: "min",
+          themeTomato: "Tomato",
+          themeSaffron: "Saffron",
+          themeOregano: "Oregano",
+          themeBlueberry: "Blueberry",
+          themeHerbs: "Dried Herbs",
+          themePepper: "Black<br>Pepper",
+          msgFocusDone: "Focus finished! Time for a break.",
+          msgBreakDone: "Break finished! Time to focus.",
+          logFocus: "✅ Focus completed",
+          logBreak: "☕ Break finished",
+          months: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
+          modalTitle: "Send me a message",
+          modalEmail: "Your Email or Phone",
+          modalMsg: "Your Message",
+          modalCancel: "Cancel",
+          modalSend: "Send",
+          modalSuccess: "Message Sent!",
+          lblPortfolio: "Portfolio",
+          lblCoffee: "Buy me a coffee",
+          lblEmail: "E-mail",
+          msgMaxFocus: "Warning: Focus time cannot exceed 60 minutes!",
+        },
+        es: {
+          titleSettings: "Ajustes de Tiempo",
+          titleHistory: "Historial",
+          titleThemes: "Temas",
+          statusReady: "Listo para Enfocar",
+          statusFocus: "Enfoque",
+          statusShort: "Pausa Corta",
+          statusLong: "Pausa Larga",
+          statusReadyShort: "Listo: Pausa Corta",
+          statusReadyLong: "Listo: Pausa Larga",
+          paused: "(Pausado)",
+          btnFinish: "Concluir Ciclo",
+          btnPip: "📌 Ventana Flotante",
+          lblFocus: "Enfoque:",
+          lblShort: "Pausa Corta:",
+          lblLong: "Pausa Larga:",
+          lblCycles: "Ciclos p/ Pausa Larga:",
+          min: "min",
+          themeTomato: "Tomate",
+          themeSaffron: "Azafrán",
+          themeOregano: "Orégano",
+          themeBlueberry: "Arándano",
+          themeHerbs: "Hierbas Secas",
+          themePepper: "Pimienta<br>Negra",
+          msgFocusDone: "¡Enfoque terminado! Hora de una pausa.",
+          msgBreakDone: "¡Pausa terminada! Hora de enfocar.",
+          logFocus: "✅ Enfoque completado",
+          logBreak: "☕ Pausa finalizada",
+          months: [
+            "Ene",
+            "Feb",
+            "Mar",
+            "Abr",
+            "May",
+            "Jun",
+            "Jul",
+            "Ago",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dic",
+          ],
+          modalTitle: "Envíame un mensaje",
+          modalEmail: "Tu Email o Teléfono",
+          modalMsg: "Tu Mensaje",
+          modalCancel: "Cancelar",
+          modalSend: "Enviar",
+          modalSuccess: "¡Mensaje Enviado!",
+          lblPortfolio: "Portafolio",
+          lblCoffee: "Cómprame un café",
+          lblEmail: "Email",
+          msgMaxFocus:
+            "Aviso: ¡El tiempo de enfoque no puede exceder los 60 minutos!",
+        },
+      };
 
-        let currentLang = 'pt';
-        function t(key) { return i18n[currentLang][key]; }
+      let currentLang = "pt";
+      function t(key) {
+        return i18n[currentLang][key];
+      }
 
-        function changeLanguage(lang) {
-            currentLang = lang;
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (i18n[currentLang][key]) {
-                    el.innerHTML = i18n[currentLang][key];
-                }
+      function changeLanguage(lang) {
+        currentLang = lang;
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (i18n[currentLang][key]) {
+            el.innerHTML = i18n[currentLang][key];
+          }
+        });
+        updateStatusText();
+        updateDisplay();
+      }
+
+      // FUNÇÕES DO MODAL DE CONTATO
+      const modal = document.getElementById("contact-modal");
+      function toggleModal(show) {
+        if (show) {
+          modal.classList.remove("hidden");
+        } else {
+          modal.classList.add("hidden");
+          document.getElementById("contact-form").reset();
+        }
+      }
+
+      modal.addEventListener("click", function (e) {
+        if (e.target === modal) toggleModal(false);
+      });
+
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const form = e.target;
+
+          if (form.action.includes("SEU_LINK_AQUI")) {
+            alert(
+              "Para o envio funcionar, insira o seu link do Formspree no código HTML (linha 226).",
+            );
+            return;
+          }
+
+          try {
+            const response = await fetch(form.action, {
+              method: form.method,
+              body: new FormData(form),
+              headers: { Accept: "application/json" },
             });
-            updateStatusText();
-            updateDisplay();
-        }
 
-        const modal = document.getElementById('contact-modal');
-        function toggleModal(show) {
-            if (show) {
-                modal.classList.remove('hidden');
+            if (response.ok) {
+              showNotification(t("modalSuccess"));
+              toggleModal(false);
             } else {
-                modal.classList.add('hidden');
-                document.getElementById('contact-form').reset();
+              alert("Ocorreu um erro ao enviar. Tente novamente mais tarde.");
             }
-        }
-
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) toggleModal(false);
+          } catch (error) {
+            alert("Erro de conexão ao enviar a mensagem.");
+          }
         });
 
-        document.getElementById('contact-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const form = e.target;
-            
-            if (form.action.includes("SEU_LINK_AQUI")) {
-                alert("Para o envio funcionar, insira o seu link do Formspree no código HTML (linha 226).");
-                return;
-            }
+      // LÓGICA DO SINO (Web Audio API)
+      function playBellSound() {
+        try {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (!AudioContext) return;
 
-            try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
-                });
-                
-                if (response.ok) {
-                    showNotification(t('modalSuccess'));
-                    toggleModal(false);
-                } else {
-                    alert("Ocorreu um erro ao enviar. Tente novamente mais tarde.");
-                }
-            } catch (error) {
-                alert("Erro de conexão ao enviar a mensagem.");
-            }
-        });
+          const ctx = new AudioContext();
 
-        let timeRemaining = 25 * 60;
-        let timerInterval = null;
-        let isRunning = false;
-        let currentMode = 'focus'; 
-        let totalFocusCycles = 0;
-        let pipWindow = null; 
-        let currentThemeClass = 'theme-tomato'; 
+          // Oscilador Principal (Tom base)
+          const osc1 = ctx.createOscillator();
+          const gain1 = ctx.createGain();
+          osc1.type = "sine";
+          osc1.frequency.setValueAtTime(880, ctx.currentTime); // Nota A5
 
-        let settings = { focus: 25, short: 5, long: 15, cyclesToLong: 4 };
+          // Oscilador Secundário (Harmonia para som de sino)
+          const osc2 = ctx.createOscillator();
+          const gain2 = ctx.createGain();
+          osc2.type = "sine";
+          osc2.frequency.setValueAtTime(1760, ctx.currentTime); // Nota A6
 
-        const elTimer = document.getElementById('timer');
-        const elStatus = document.getElementById('status');
-        const elBody = document.body;
-        const elHistory = document.getElementById('history');
-        const elNotification = document.getElementById('page-notification');
-        let notificationTimeout;
+          // Envelope de volume (Ataque rápido, queda suave)
+          gain1.gain.setValueAtTime(1, ctx.currentTime);
+          gain1.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 2);
 
-        function setTheme(themeName, btnElement) {
-            elBody.classList.remove('theme-tomato', 'theme-saffron', 'theme-oregano', 'theme-blueberry', 'theme-herbs', 'theme-pepper');
-            elBody.classList.add(themeName);
-            currentThemeClass = themeName;
+          gain2.gain.setValueAtTime(0.5, ctx.currentTime);
+          gain2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.5);
 
-            document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
-            btnElement.classList.add('active');
+          osc1.connect(gain1);
+          gain1.connect(ctx.destination);
 
-            if (pipWindow) {
-                pipWindow.document.body.className = themeName + (elBody.classList.contains('dark-mode') ? ' dark-mode' : '');
-            }
+          osc2.connect(gain2);
+          gain2.connect(ctx.destination);
+
+          osc1.start();
+          osc2.start();
+          osc1.stop(ctx.currentTime + 2);
+          osc2.stop(ctx.currentTime + 2);
+        } catch (e) {
+          console.log("Áudio bloqueado ou não suportado no navegador.");
         }
+      }
 
-        function updateSettings() {
-            settings.focus = parseInt(document.getElementById('set-focus').value) || 25;
-            settings.short = parseInt(document.getElementById('set-short').value) || 5;
-            settings.long = parseInt(document.getElementById('set-long').value) || 15;
-            settings.cyclesToLong = parseInt(document.getElementById('set-cycles').value) || 4;
+      // LÓGICA DO POMODORO
+      let timeRemaining = 25 * 60;
+      let timerInterval = null;
+      let isRunning = false;
+      let currentMode = "focus";
+      let totalFocusCycles = 0;
+      let pipWindow = null;
+      let currentThemeClass = "theme-tomato";
 
-            document.getElementById('val-focus').textContent = settings.focus;
-            document.getElementById('val-short').textContent = settings.short;
-            document.getElementById('val-long').textContent = settings.long;
-            document.getElementById('val-cycles').textContent = settings.cyclesToLong;
+      let settings = { focus: 25, short: 5, long: 15, cyclesToLong: 4 };
 
-            if (!isRunning) resetTimer();
+      const elTimer = document.getElementById("timer");
+      const elStatus = document.getElementById("status");
+      const elBody = document.body;
+      const elHistory = document.getElementById("history");
+      const elNotification = document.getElementById("page-notification");
+      let notificationTimeout;
+
+      function setTheme(themeName, btnElement) {
+        elBody.classList.remove(
+          "theme-tomato",
+          "theme-saffron",
+          "theme-oregano",
+          "theme-blueberry",
+          "theme-herbs",
+          "theme-pepper",
+        );
+        elBody.classList.add(themeName);
+        currentThemeClass = themeName;
+
+        document
+          .querySelectorAll(".theme-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        btnElement.classList.add("active");
+
+        if (pipWindow) {
+          pipWindow.document.body.className =
+            themeName +
+            (elBody.classList.contains("dark-mode") ? " dark-mode" : "");
         }
+      }
 
-        function formatTime(seconds) {
-            const m = Math.floor(seconds / 60).toString().padStart(2, '0');
-            const s = (seconds % 60).toString().padStart(2, '0');
-            return `${m}:${s}`;
+      function updateSettings() {
+        settings.focus =
+          parseInt(document.getElementById("set-focus").value) || 25;
+        settings.short =
+          parseInt(document.getElementById("set-short").value) || 5;
+        settings.long =
+          parseInt(document.getElementById("set-long").value) || 15;
+        settings.cyclesToLong =
+          parseInt(document.getElementById("set-cycles").value) || 4;
+
+        document.getElementById("val-focus").textContent = settings.focus;
+        document.getElementById("val-short").textContent = settings.short;
+        document.getElementById("val-long").textContent = settings.long;
+        document.getElementById("val-cycles").textContent =
+          settings.cyclesToLong;
+
+        if (!isRunning) resetTimer();
+      }
+
+      function formatTime(seconds) {
+        const m = Math.floor(seconds / 60)
+          .toString()
+          .padStart(2, "0");
+        const s = (seconds % 60).toString().padStart(2, "0");
+        return `${m}:${s}`;
+      }
+
+      function getFormattedDate() {
+        const now = new Date();
+        const day = String(now.getDate()).padStart(2, "0");
+        const monthStr = t("months")[now.getMonth()];
+        return `${day}/${monthStr} ${now.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}`;
+      }
+
+      function updateStatusText() {
+        if (isRunning) {
+          elStatus.textContent =
+            currentMode === "focus"
+              ? t("statusFocus")
+              : currentMode === "short"
+                ? t("statusShort")
+                : t("statusLong");
+        } else {
+          if (timeRemaining === settings.focus * 60)
+            elStatus.textContent = t("statusReady");
+          else if (timeRemaining === settings.short * 60)
+            elStatus.textContent = t("statusReadyShort");
+          else if (timeRemaining === settings.long * 60)
+            elStatus.textContent = t("statusReadyLong");
+          else
+            elStatus.textContent =
+              (currentMode === "focus"
+                ? t("statusFocus")
+                : currentMode === "short"
+                  ? t("statusShort")
+                  : t("statusLong")) +
+              " " +
+              t("paused");
         }
+      }
 
-        function getFormattedDate() {
-            const now = new Date();
-            const day = String(now.getDate()).padStart(2, '0');
-            const monthStr = t('months')[now.getMonth()];
-            return `${day}/${monthStr} ${now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}`;
+      function updateDisplay() {
+        elTimer.textContent = formatTime(timeRemaining);
+        updateStatusText();
+        document.title = `${formatTime(timeRemaining)} - ${elStatus.textContent}`;
+
+        if (pipWindow) {
+          pipWindow.document.getElementById("pip-timer").textContent =
+            formatTime(timeRemaining);
+          pipWindow.document.getElementById("pip-status").textContent =
+            elStatus.textContent;
+          pipWindow.document.getElementById("pip-btn-finish").textContent =
+            t("btnFinish");
+
+          pipWindow.document.getElementById("pip-btn-start").disabled =
+            isRunning;
+          pipWindow.document.getElementById("pip-btn-pause").disabled =
+            !isRunning;
+          pipWindow.document.getElementById("pip-btn-finish").disabled =
+            !isRunning &&
+            timeRemaining ===
+              settings[
+                currentMode === "short" || currentMode === "long"
+                  ? currentMode
+                  : "focus"
+              ] *
+                60;
         }
+      }
 
-        function updateStatusText() {
-            if (isRunning) {
-                elStatus.textContent = currentMode === 'focus' ? t('statusFocus') : (currentMode === 'short' ? t('statusShort') : t('statusLong'));
-            } else {
-                if (timeRemaining === settings.focus * 60) elStatus.textContent = t('statusReady');
-                else if (timeRemaining === settings.short * 60) elStatus.textContent = t('statusReadyShort');
-                else if (timeRemaining === settings.long * 60) elStatus.textContent = t('statusReadyLong');
-                else elStatus.textContent = (currentMode === 'focus' ? t('statusFocus') : (currentMode === 'short' ? t('statusShort') : t('statusLong'))) + " " + t('paused');
-            }
-        }
+      function showNotification(msg) {
+        elNotification.textContent = msg;
+        elNotification.classList.remove("hidden");
+        clearTimeout(notificationTimeout);
+        notificationTimeout = setTimeout(() => {
+          elNotification.classList.add("hidden");
+        }, 5000);
+      }
 
-        function updateDisplay() {
-            elTimer.textContent = formatTime(timeRemaining);
-            updateStatusText();
-            document.title = `${formatTime(timeRemaining)} - ${elStatus.textContent}`;
-            
-            if (pipWindow) {
-                pipWindow.document.getElementById('pip-timer').textContent = formatTime(timeRemaining);
-                pipWindow.document.getElementById('pip-status').textContent = elStatus.textContent;
-                pipWindow.document.getElementById('pip-btn-finish').textContent = t('btnFinish');
-                
-                pipWindow.document.getElementById('pip-btn-start').disabled = isRunning;
-                pipWindow.document.getElementById('pip-btn-pause').disabled = !isRunning;
-                pipWindow.document.getElementById('pip-btn-finish').disabled = !isRunning && timeRemaining === (settings[currentMode === 'short' || currentMode === 'long' ? currentMode : 'focus'] * 60);
-            }
-        }
+      function startTimer() {
+        if (isRunning) return;
+        isRunning = true;
+        elNotification.classList.add("hidden");
 
-        function showNotification(msg) {
-            elNotification.textContent = msg;
-            elNotification.classList.remove('hidden');
-            clearTimeout(notificationTimeout);
-            notificationTimeout = setTimeout(() => { elNotification.classList.add('hidden'); }, 5000);
-        }
+        if (currentMode === "focus") elBody.classList.add("dark-mode");
+        if (pipWindow && currentMode === "focus")
+          pipWindow.document.body.classList.add("dark-mode");
 
-        function startTimer() {
-            if (isRunning) return;
-            isRunning = true;
-            elNotification.classList.add('hidden');
-            
-            if (currentMode === 'focus') elBody.classList.add('dark-mode');
-            if (pipWindow && currentMode === 'focus') pipWindow.document.body.classList.add('dark-mode');
+        document.getElementById("btn-start").disabled = true;
+        document.getElementById("btn-pause").disabled = false;
+        document.getElementById("btn-finish").disabled = false;
 
-            document.getElementById('btn-start').disabled = true;
-            document.getElementById('btn-pause').disabled = false;
-            document.getElementById('btn-finish').disabled = false;
-
-            timerInterval = setInterval(() => {
-                if (timeRemaining > 0) { timeRemaining--; updateDisplay(); } 
-                else { handlePhaseComplete(); }
-            }, 1000);
+        timerInterval = setInterval(() => {
+          if (timeRemaining > 0) {
+            timeRemaining--;
             updateDisplay();
+          } else {
+            handlePhaseComplete();
+          }
+        }, 1000);
+        updateDisplay();
+      }
+
+      function pauseTimer() {
+        clearInterval(timerInterval);
+        isRunning = false;
+        document.getElementById("btn-start").disabled = false;
+        document.getElementById("btn-pause").disabled = true;
+        elBody.classList.remove("dark-mode");
+        if (pipWindow) pipWindow.document.body.classList.remove("dark-mode");
+
+        updateDisplay();
+      }
+
+      function resetTimer() {
+        clearInterval(timerInterval);
+        isRunning = false;
+        elBody.classList.remove("dark-mode");
+        if (pipWindow) pipWindow.document.body.classList.remove("dark-mode");
+
+        currentMode = "focus";
+        timeRemaining = settings.focus * 60;
+
+        document.getElementById("btn-start").disabled = false;
+        document.getElementById("btn-pause").disabled = true;
+        document.getElementById("btn-finish").disabled = true;
+        updateDisplay();
+      }
+
+      // ==========================================
+      // LÓGICA DE AJUSTE MANUAL E SINCRONIA
+      // ==========================================
+      function adjustTime(minutes) {
+        timeRemaining += minutes * 60;
+
+        if (timeRemaining < 60) {
+          timeRemaining = 60;
         }
 
-        function pauseTimer() {
-            clearInterval(timerInterval);
-            isRunning = false;
-            document.getElementById('btn-start').disabled = false;
-            document.getElementById('btn-pause').disabled = true;
-            elBody.classList.remove('dark-mode');
-            if (pipWindow) pipWindow.document.body.classList.remove('dark-mode');
-            
-            updateDisplay();
+        if (currentMode === "focus" && timeRemaining > 60 * 60) {
+          timeRemaining = 60 * 60;
+          showNotification(t("msgMaxFocus"));
         }
 
-        function resetTimer() {
-            clearInterval(timerInterval);
-            isRunning = false;
-            elBody.classList.remove('dark-mode');
-            if (pipWindow) pipWindow.document.body.classList.remove('dark-mode');
+        let adjustedMinutes = Math.round(timeRemaining / 60);
 
-            currentMode = 'focus';
-            timeRemaining = settings.focus * 60;
-            
-            document.getElementById('btn-start').disabled = false;
-            document.getElementById('btn-pause').disabled = true;
-            document.getElementById('btn-finish').disabled = true;
-            updateDisplay();
+        if (currentMode === "focus") {
+          let sliderValue = adjustedMinutes > 60 ? 60 : adjustedMinutes;
+          document.getElementById("set-focus").value = sliderValue;
+          document.getElementById("val-focus").textContent = sliderValue;
+          settings.focus = sliderValue;
+        } else if (currentMode === "short") {
+          let maxShort =
+            parseInt(document.getElementById("set-short").max) || 15;
+          let sliderValue =
+            adjustedMinutes > maxShort ? maxShort : adjustedMinutes;
+          document.getElementById("set-short").value = sliderValue;
+          document.getElementById("val-short").textContent = sliderValue;
+          settings.short = sliderValue;
+        } else if (currentMode === "long") {
+          let maxLong = parseInt(document.getElementById("set-long").max) || 45;
+          let sliderValue =
+            adjustedMinutes > maxLong ? maxLong : adjustedMinutes;
+          document.getElementById("set-long").value = sliderValue;
+          document.getElementById("val-long").textContent = sliderValue;
+          settings.long = sliderValue;
         }
 
-        function adjustTime(minutes) {
-            timeRemaining += minutes * 60;
-            
-            if (timeRemaining < 60) {
-                timeRemaining = 60;
-            }
+        updateDisplay();
+      }
 
-            if (currentMode === 'focus' && timeRemaining > 60 * 60) {
-                timeRemaining = 60 * 60;
-                showNotification(t('msgMaxFocus'));
-            }
+      function handlePhaseComplete() {
+        clearInterval(timerInterval);
+        isRunning = false;
+        elBody.classList.remove("dark-mode");
+        if (pipWindow) pipWindow.document.body.classList.remove("dark-mode");
 
-            let adjustedMinutes = Math.round(timeRemaining / 60);
+        // Toca a campainha suavemente!
+        playBellSound();
 
-            if (currentMode === 'focus') {
-                let sliderValue = adjustedMinutes > 60 ? 60 : adjustedMinutes;
-                document.getElementById('set-focus').value = sliderValue;
-                document.getElementById('val-focus').textContent = sliderValue;
-                settings.focus = sliderValue;
-            } 
-            else if (currentMode === 'short') {
-                let maxShort = parseInt(document.getElementById('set-short').max) || 15;
-                let sliderValue = adjustedMinutes > maxShort ? maxShort : adjustedMinutes;
-                document.getElementById('set-short').value = sliderValue;
-                document.getElementById('val-short').textContent = sliderValue;
-                settings.short = sliderValue;
-            } 
-            else if (currentMode === 'long') {
-                let maxLong = parseInt(document.getElementById('set-long').max) || 45;
-                let sliderValue = adjustedMinutes > maxLong ? maxLong : adjustedMinutes;
-                document.getElementById('set-long').value = sliderValue;
-                document.getElementById('val-long').textContent = sliderValue;
-                settings.long = sliderValue;
-            }
+        const dateStr = getFormattedDate();
+        let logMsg = "";
 
-            updateDisplay();
+        if (currentMode === "focus") {
+          totalFocusCycles++;
+          logMsg = `${t("logFocus")} (#${totalFocusCycles})`;
+          showNotification(t("msgFocusDone"));
+
+          if (totalFocusCycles % settings.cyclesToLong === 0) {
+            currentMode = "long";
+            timeRemaining = settings.long * 60;
+          } else {
+            currentMode = "short";
+            timeRemaining = settings.short * 60;
+          }
+        } else {
+          logMsg = t("logBreak");
+          showNotification(t("msgBreakDone"));
+          currentMode = "focus";
+          timeRemaining = settings.focus * 60;
         }
 
-        function handlePhaseComplete() {
-            clearInterval(timerInterval);
-            isRunning = false;
-            elBody.classList.remove('dark-mode'); 
-            if (pipWindow) pipWindow.document.body.classList.remove('dark-mode');
-            
-            const dateStr = getFormattedDate();
-            let logMsg = "";
+        const li = document.createElement("li");
+        li.innerHTML = `<span class="history-date">${dateStr}</span>${logMsg}`;
+        elHistory.prepend(li);
 
-            if (currentMode === 'focus') {
-                totalFocusCycles++;
-                logMsg = `${t('logFocus')} (#${totalFocusCycles})`;
-                showNotification(t('msgFocusDone'));
-                
-                if (totalFocusCycles % settings.cyclesToLong === 0) {
-                    currentMode = 'long'; timeRemaining = settings.long * 60;
-                } else {
-                    currentMode = 'short'; timeRemaining = settings.short * 60;
-                }
-            } else {
-                logMsg = t('logBreak');
-                showNotification(t('msgBreakDone'));
-                currentMode = 'focus'; timeRemaining = settings.focus * 60;
-            }
+        document.getElementById("btn-start").disabled = false;
+        document.getElementById("btn-pause").disabled = true;
+        document.getElementById("btn-finish").disabled = true;
+        updateDisplay();
+      }
 
-            const li = document.createElement('li');
-            li.innerHTML = `<span class="history-date">${dateStr}</span>${logMsg}`;
-            elHistory.prepend(li);
-            
-            document.getElementById('btn-start').disabled = false;
-            document.getElementById('btn-pause').disabled = true;
-            document.getElementById('btn-finish').disabled = true;
-            updateDisplay();
+      async function togglePiP() {
+        if (pipWindow) {
+          pipWindow.close();
+          return;
+        }
+        if (!("documentPictureInPicture" in window)) {
+          alert("Navegador não suporta PiP interativo.");
+          return;
         }
 
-        async function togglePiP() {
-            if (pipWindow) { pipWindow.close(); return; }
-            if (!('documentPictureInPicture' in window)) { alert("Navegador não suporta PiP interativo."); return; }
+        try {
+          pipWindow = await window.documentPictureInPicture.requestWindow({
+            width: 320,
+            height: 380,
+          });
+          const isDarkClass = elBody.classList.contains("dark-mode")
+            ? " dark-mode"
+            : "";
 
-            try {
-                pipWindow = await window.documentPictureInPicture.requestWindow({ width: 320, height: 380 });
-                const isDarkClass = elBody.classList.contains('dark-mode') ? ' dark-mode' : '';
-
-                const style = document.createElement('style');
-                style.textContent = `
+          const style = document.createElement("style");
+          style.textContent = `
                     @font-face { font-family: 'Cooper Black'; src: local('Cooper Black'), local('CooperBlack'), local('Arial Black'); }
                     
                     :root, body.theme-tomato { --bg-light: #fbc4ab; --text-light: #5d2a27; --bg-dark: #1a0a09; --text-dark: #fbc4ab; }
@@ -679,37 +1483,45 @@
                     body.dark-mode .btn-finish { border-color: #ff4d6d; color: #ff4d6d; }
                     body.theme-pepper .btn-finish { border-color: #ff4d6d; color: #ff4d6d; }
                 `;
-                pipWindow.document.head.appendChild(style);
+          pipWindow.document.head.appendChild(style);
 
-                pipWindow.document.body.className = currentThemeClass + isDarkClass;
+          pipWindow.document.body.className = currentThemeClass + isDarkClass;
 
-                pipWindow.document.body.innerHTML = `
+          pipWindow.document.body.innerHTML = `
                     <div id="pip-status">${elStatus.textContent}</div>
                     <div id="pip-timer">${formatTime(timeRemaining)}</div>
                     <div class="controls">
                         <button id="pip-btn-minus">- 1'</button>
-                        <button id="pip-btn-start" ${isRunning ? 'disabled' : ''}>▶️</button>
-                        <button id="pip-btn-pause" ${!isRunning ? 'disabled' : ''}>⏸️</button>
+                        <button id="pip-btn-start" ${isRunning ? "disabled" : ""}>▶️</button>
+                        <button id="pip-btn-pause" ${!isRunning ? "disabled" : ""}>⏸️</button>
                         <button id="pip-btn-plus">+ 1'</button>
                     </div>
                     <div class="controls" style="width: 80%;">
-                        <button id="pip-btn-finish" class="btn-finish">${t('btnFinish')}</button>
+                        <button id="pip-btn-finish" class="btn-finish">${t("btnFinish")}</button>
                     </div>
                 `;
 
-                pipWindow.document.getElementById("pip-btn-minus").onclick = () => adjustTime(-1);
-                pipWindow.document.getElementById("pip-btn-plus").onclick = () => adjustTime(1);
-                pipWindow.document.getElementById("pip-btn-start").onclick = startTimer;
-                pipWindow.document.getElementById("pip-btn-pause").onclick = pauseTimer;
-                pipWindow.document.getElementById("pip-btn-finish").onclick = handlePhaseComplete;
+          pipWindow.document.getElementById("pip-btn-minus").onclick = () =>
+            adjustTime(-1);
+          pipWindow.document.getElementById("pip-btn-plus").onclick = () =>
+            adjustTime(1);
+          pipWindow.document.getElementById("pip-btn-start").onclick =
+            startTimer;
+          pipWindow.document.getElementById("pip-btn-pause").onclick =
+            pauseTimer;
+          pipWindow.document.getElementById("pip-btn-finish").onclick =
+            handlePhaseComplete;
 
-                pipWindow.addEventListener("pagehide", () => { pipWindow = null; });
-
-            } catch (error) { console.error("Erro no PiP:", error); }
+          pipWindow.addEventListener("pagehide", () => {
+            pipWindow = null;
+          });
+        } catch (error) {
+          console.error("Erro no PiP:", error);
         }
+      }
 
-        updateSettings();
-        changeLanguage('pt');
+      updateSettings();
+      changeLanguage("pt");
     </script>
-</body>
+  </body>
 </html>
